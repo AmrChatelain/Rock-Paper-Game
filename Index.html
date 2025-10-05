@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+   <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="fullGame-container" id="fullGame">
+        
+        <!-- START SCREEN -->
+        <div class="start-container" id="start-screen">
+            <img class="start-img" src="Imgs/start.gif" alt="START">
+            <h1>Rock Paper Scissors</h1>
+            <p>First to 5 wins!</p>
+            <button class="startBtn" id="startBtn">Start the Game</button>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div class="gameOn-hidden" id="game-screen">
+            <h2>Choose Your Weapon!</h2>
+            
+            <div class="score-container">
+                <div class="player-score">
+                    <p>You</p>
+                    <span id="player-score">0</span>
+                </div>
+                <div class="computer-score">
+                    <p>AI</p>
+                    <span id="computer-score">0</span>
+                </div>
+            </div>
+
+            <div class="choices">
+                <button class="rockBtn" id="rockBtn"></button>
+                <button class="paperBtn" id="paperBtn"></button>
+                <button class="scissorsBtn" id="scissorsBtn"></button>
+            </div>
+
+            <div class="result-container">
+
+                <p id="result-message"></p>
+
+                <p id="round-choices"></p>
+            </div>
+        </div>
+
+        <!-- END SCREEN -->
+        <div class="endScreen-hidden" id="end-screen">
+            <img class="end-img" src="Imgs/end.gif" alt="GAME-OVER">
+            <h2 id="winner-text">You Win!</h2>
+            <p id="final-score">Final Score: 5 - 3</p>
+            <button class="restartBtn" id="restartBtn">Play Again</button>
+        </div>
+
+    </div>
+    <script src="Script.js"></script>
+</body>
+</html>
