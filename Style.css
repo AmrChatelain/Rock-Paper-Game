@@ -1,0 +1,221 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Knewave", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #2b2d42; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.start-img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+.start-container h1 {
+    color: #ffffff;
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255, 107, 181, 0.5);
+}
+
+.start-container p {
+    color: #e0e0e0;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+
+.startBtn {
+    background: linear-gradient(135deg, #ff6bb5, #d946ef);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(217, 70, 239, 0.4);
+    transition: all 0.3s ease;
+}
+
+.startBtn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(217, 70, 239, 0.6);
+    background: linear-gradient(135deg, #d946ef, #ff6bb5);
+    background-image:url(animated.gif);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.startBtn:active {
+    transform: scale(1.05) translateY(-2px);
+}
+
+.score-container{
+
+ display: flex;
+ justify-content: center;
+ gap: 80px;
+ margin-bottom: 50px;
+  width: 100%;
+}
+.gameOn-hidden{
+ display: block;
+ justify-content: center;
+ text-align: center;
+ padding-bottom: 25px;
+
+}
+
+.gameOn-hidden h2 {
+    padding: 20px;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(147, 107, 255, 0.6);
+}
+.player-score, .computer-score {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.player-score p, .computer-score p {
+    color: #e0e0e0;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.player-score span, .computer-score span {
+    color: #ffffff;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(147, 107, 255, 0.8);
+}
+
+
+.choices{
+
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+
+}
+
+.rockBtn{
+    background: linear-gradient(135deg, #936bff, #4665ef);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(98, 55, 217, 0.4);
+    transition: all 0.3s ease;
+}
+
+.rockBtn:hover {
+    color: transparent;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
+    background: linear-gradient(135deg, #5a52b3, #685ab1);
+    background-image:url(Imgs/rock-icon.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.paperBtn {
+    background: linear-gradient(135deg, #936bff, #4665ef);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(98, 55, 217, 0.4);
+    transition: all 0.3s ease;
+}
+
+.paperBtn:hover {
+    color: transparent;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
+    background: linear-gradient(135deg, #5a52b3, #685ab1);
+    background-image:url(Imgs/paper-icons.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.scissorsBtn{
+    background: linear-gradient(135deg, #936bff, #4665ef);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(98, 55, 217, 0.4);
+    transition: all 0.3s ease;
+}
+
+.scissorsBtn:hover {
+    color: transparent;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
+    background: linear-gradient(135deg, #5a52b3, #685ab1);
+    background-image:url(Imgs/scissors-icons.jpg);
+    background-size:cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.end-img{
+    height: auto;
+    margin: 2rem;
+    padding: 20px;
+    border-radius: 50px;
+
+}
+
+.winner-text{
+    color: #ffffff;
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255, 107, 181, 0.5);
+}

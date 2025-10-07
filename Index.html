@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <!-- FOR THE FONT AND STYLES-->
    <link rel="stylesheet" href="Style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="fullGame-container" id="fullGame">
         
-        <!-- START SCREEN -->
+        <!-- START -->
         <div class="start-container" id="start-screen">
             <img class="start-img" src="Imgs/start.gif" alt="START">
             <h1>Rock Paper Scissors</h1>
@@ -17,7 +21,7 @@
             <button class="startBtn" id="startBtn">Start the Game</button>
         </div>
 
-        <!-- GAME SCREEN -->
+        <!-- GAME -->
         <div class="gameOn-hidden" id="game-screen">
             <h2>Choose Your Weapon!</h2>
             
@@ -33,11 +37,12 @@
             </div>
 
             <div class="choices">
-                <button class="rockBtn" id="rockBtn"></button>
-                <button class="paperBtn" id="paperBtn"></button>
-                <button class="scissorsBtn" id="scissorsBtn"></button>
+                <button class="rockBtn" id="rockBtn">Rock</button>
+                <button class="paperBtn" id="paperBtn">Paper</button>
+                <button class="scissorsBtn" id="scissorsBtn">Scissors</button>
             </div>
 
+               
             <div class="result-container">
 
                 <p id="result-message"></p>
@@ -46,11 +51,12 @@
             </div>
         </div>
 
-        <!-- END SCREEN -->
+                 <!-- END -->
+                  
         <div class="endScreen-hidden" id="end-screen">
-            <img class="end-img" src="Imgs/end.gif" alt="GAME-OVER">
+            <img class="end-img" src="Imgs/all_v_all.gif" alt="GAME-OVER">
             <h2 id="winner-text">You Win!</h2>
-            <p id="final-score">Final Score: 5 - 3</p>
+            <p id="final-score">Final Score: 0 - 0</p>
             <button class="restartBtn" id="restartBtn">Play Again</button>
         </div>
 
@@ -58,3 +64,5 @@
     <script src="Script.js"></script>
 </body>
 </html>
+
+<!-- PUT COMMENTS SO ANYONE CAN UNDERSTAND -->
