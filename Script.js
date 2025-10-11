@@ -28,13 +28,15 @@ function showScreens (screen) {
 }
 
 startBtn.addEventListener("click", () =>{
-  userName=document.getElementById("playerName").value;
-console.log(userName);
- document.getElementById("player-text").textContent = userName;
-
-
- showScreens(gameScreen);
-
+  userName=document.getElementById("playerName").value.trim();
+ if (userName === "") {
+        alert("Please enter your name first!");
+        return;
+    }
+    
+    console.log(userName);
+    document.getElementById("player-text").textContent = userName;
+    showScreens(gameScreen);
 });
 
 let playersScore=0;
