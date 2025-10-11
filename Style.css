@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +18,7 @@ body {
 
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 
@@ -44,14 +43,35 @@ body {
     font-size: 3em;
     margin-bottom: 15px;
     text-shadow: 0 0 20px rgba(255, 107, 181, 0.5);
+   
 }
 
 .start-container p {
     color: #e0e0e0;
     font-size: 1.3em;
     margin-bottom: 30px;
+    /* Typing effect properties */
+    width: 16ch; /* 16 characters for "First to 5 wins!" */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #ffffff; /* Cursor effect */
+    animation: typing 4s steps(16) infinite, blink 0.75s step-end infinite;
 }
 
+@keyframes typing {
+    0%, 100% {
+        width: 0;
+    }
+    50% {
+        width: 16ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
 
 .startBtn {
     background: linear-gradient(135deg, #ff6bb5, #d946ef);
@@ -70,7 +90,7 @@ body {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 12px 30px rgba(217, 70, 239, 0.6);
     background: linear-gradient(135deg, #d946ef, #ff6bb5);
-    background-image:url(animated.gif);
+    background-image: url(animated.gif);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
@@ -80,28 +100,34 @@ body {
     transform: scale(1.05) translateY(-2px);
 }
 
-.score-container{
-
- display: flex;
- justify-content: center;
- gap: 80px;
- margin-bottom: 50px;
-  width: 100%;
-}
-.gameOn-hidden{
- display: block;
- justify-content: center;
- text-align: center;
- padding-bottom: 25px;
-
+.gameOn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    min-height: 100vh;
 }
 
-.gameOn-hidden h2 {
+.gameOn h2 {
+    color: #ffffff;
     padding: 20px;
     font-size: 2.5em;
     text-align: center;
     text-shadow: 0 0 15px rgba(147, 107, 255, 0.6);
+    margin-bottom: 20px;
 }
+
+
+.score-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
 .player-score, .computer-score {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px 40px;
@@ -124,16 +150,16 @@ body {
 }
 
 
-.choices{
-
+.choices {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
     text-align: center;
-
-
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
-.rockBtn{
+.rockBtn {
     background: linear-gradient(135deg, #936bff, #4665ef);
     color: white;
     border: none;
@@ -151,7 +177,7 @@ body {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
     background: linear-gradient(135deg, #5a52b3, #685ab1);
-    background-image:url(Imgs/rock-icon.jpg);
+    background-image: url(Imgs/rock-icon.jpg);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
@@ -175,13 +201,13 @@ body {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
     background: linear-gradient(135deg, #5a52b3, #685ab1);
-    background-image:url(Imgs/paper-icons.jpg);
+    background-image: url(Imgs/paper-icons.jpg);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
 }
 
-.scissorsBtn{
+.scissorsBtn {
     background: linear-gradient(135deg, #936bff, #4665ef);
     color: white;
     border: none;
@@ -199,23 +225,91 @@ body {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 12px 30px rgba(129, 70, 239, 0.6);
     background: linear-gradient(135deg, #5a52b3, #685ab1);
-    background-image:url(Imgs/scissors-icons.jpg);
-    background-size:cover;
+    background-image: url(Imgs/scissors-icons.jpg);
+    background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
 }
 
-.end-img{
-    height: auto;
-    margin: 2rem;
-    padding: 20px;
-    border-radius: 50px;
 
+.result-container {
+    margin-top: 30px;
 }
 
-.winner-text{
+#result-message {
     color: #ffffff;
-    font-size: 3em;
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(255, 107, 181, 0.5);
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#round-choices {
+    color: #e0e0e0;
+    font-size: 1.2em;
+}
+
+
+.end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.end-img {
+    width: 500px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+#winner-text {
+    color: #ffffff;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 107, 181, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+#final-score {
+    color: #e0e0e0;
+    font-size: 2em;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 50px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.restartBtn {
+    background: linear-gradient(135deg, #a16bff, #2c0432);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(217, 70, 239, 0.4);
+    transition: all 0.3s ease;
+}
+
+.restartBtn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(120, 50, 131, 0.6);
+    background: linear-gradient(135deg, #29032f, #b354b1);
+}
+
+.restartBtn:active {
+    transform: scale(1.05) translateY(-2px);
 }
