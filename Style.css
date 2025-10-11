@@ -72,6 +72,38 @@ body {
         border-color: transparent;
     }
 }
+.start-container label {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#playerName {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 300px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#playerName::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#playerName:focus {
+    border-color: #ff6bb5;
+    box-shadow: 0 0 20px rgba(255, 107, 181, 0.5);
+    background: rgba(255, 255, 255, 0.3);
+}
+
 
 .startBtn {
     background: linear-gradient(135deg, #ff6bb5, #d946ef);

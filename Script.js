@@ -15,6 +15,8 @@ const winnerText= document.getElementById("winner-text");
 const finalScore=document.getElementById("final-score");
 const restartBtn= document.getElementById("restartBtn");
 
+let userName;
+
 
 function showScreens (screen) {
  startScreen.classList.add('hidden');
@@ -26,6 +28,10 @@ function showScreens (screen) {
 }
 
 startBtn.addEventListener("click", () =>{
+  userName=document.getElementById("playerName").value;
+console.log(userName);
+ document.getElementById("player-text").textContent = userName;
+
 
  showScreens(gameScreen);
 
@@ -102,6 +108,7 @@ scissorsBtn.onclick= () =>{
   playRound("Scissors");
   checkWinner();
 };
+
 
 restartBtn.onclick = () => {
     playersScore = 0;

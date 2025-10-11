@@ -14,11 +14,13 @@
 
     <div class="fullGame-container" id="fullGame">
         
-            <!-- START -->
+         <!-- START -->
         <div class="start-container" id="start-screen">
             <img class="start-img" src="Imgs/start.gif" alt="START">
             <h1>Rock Paper Scissors</h1>
             <p>First to 5 wins!</p>
+            <label for="playerName"></label>
+            <input type="text" for="playerName" id="playerName" placeholder="Enter Your Name!" required>
             <button class="startBtn" id="startBtn">Start the Game</button>
         </div>
 
@@ -29,7 +31,7 @@
             <!-- Score Display -->
             <div class="score-container">
                 <div class="player-score">
-                    <p>You</p>
+                    <p id="player-text">You</p>
                     <span id="player-score">0</span>
                 </div>
                 <div class="computer-score">
