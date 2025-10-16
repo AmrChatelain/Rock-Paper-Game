@@ -1,122 +1,148 @@
-const startScreen = document.getElementById("start-screen");
-const startBtn = document.getElementById("startBtn");
-const gameScreen = document.getElementById("game-screen");
-const scoreContainer= document.getElementById("score-container");
-const playerScore = document.getElementById ("player-score");
-const computerScore  =document.getElementById("computer-score");
-const choices = document.getElementById("choices");
-const rockBtn= document.getElementById("rockBtn");
-const paperBtn = document.getElementById("paperBtn");
-const scissorsBtn =document.getElementById("scissorsBtn");
-const resultMsg= document.getElementById("result-message");
-const roundChoices= document.getElementById("round-choices");
-const endScreen =document.getElementById("end-screen");
-const winnerText= document.getElementById("winner-text");
-const finalScore=document.getElementById("final-score");
-const restartBtn= document.getElementById("restartBtn");
-
-let userName;
-
-
-function showScreens (screen) {
- startScreen.classList.add('hidden');
- gameScreen.classList.add('hidden');
- endScreen.classList.add ('hidden');
-
-  screen.classList.remove('hidden');
-
-}
-
-startBtn.addEventListener("click", () =>{
-  userName=document.getElementById("playerName").value.trim();
- if (userName === "") {
-        alert("Please enter your name first!");
-        return;
+class Game {
+    
+    constructor() {
+        this.startScreen = document.getElementById("start-screen");
+        this.gameScreen = document.getElementById("game-screen");
+        this.endScreen = document.getElementById("end-screen");
+        
+        this.startBtn = document.getElementById("startBtn");
+        this.rockBtn = document.getElementById("rockBtn");
+        this.paperBtn = document.getElementById("paperBtn");
+        this.scissorsBtn = document.getElementById("scissorsBtn");
+        this.restartBtn = document.getElementById("restartBtn");
+        
+        this.playerNameInput = document.getElementById("playerName");
+        this.playerText = document.getElementById("player-text");
+        this.playerScoreEl = document.getElementById("player-score");
+        this.computerScoreEl = document.getElementById("computer-score");
+        
+        this.resultMsg = document.getElementById("result-message");
+        this.roundChoices = document.getElementById("round-choices");
+        this.winnerText = document.getElementById("winner-text");
+        this.finalScore = document.getElementById("final-score");
+        
+        this.playersScore = 0;
+        this.AiScore = 0;
+        this.userName = "";
+        
+        this.setupButtons();
     }
     
-    console.log(userName);
-    document.getElementById("player-text").textContent = userName;
-    showScreens(gameScreen);
-});
+    setupButtons() {
+        this.startBtn.onclick = () => {
+            this.startGame();
+        };
+        
+    
+        this.rockBtn.onclick = () => {
+            this.play("Rock");
+        };
+        
+    
+        this.paperBtn.onclick = () => {
+            this.play("Paper");
+        };
+        
+  
+        this.scissorsBtn.onclick = () => {
+            this.play("Scissors");
+        };
+        
+        
+        this.restartBtn.onclick = () => {
+            this.restart();
+        };
+    }
+    
+    
+    startGame() {
+        
+        this.userName = this.playerNameInput.value.trim();
+        
+        
+        if (this.userName === "") {
+            alert("Please enter your name first!");
+            return;
+        }
+        
+        
+        this.playerText.textContent = this.userName;
+        
+        
+        this.startScreen.classList.add('hidden');
+        this.gameScreen.classList.remove('hidden');
+    }
+    
+    getComputerChoice() {
+        const choices = ["Rock", "Paper", "Scissors"];
+        const random = Math.floor(Math.random() * 3);
+        return choices[random];
+    }
+    
 
-let playersScore=0;
+    play(playerChoice) {
+    
+        const computerChoice = this.getComputerChoice();
+  
+        this.roundChoices.textContent = `${this.userName} chose ${playerChoice}, AI chose ${computerChoice}`;
+        
+        if (playerChoice === computerChoice) {
+            this.resultMsg.textContent = "It's a Tie!";
+            return; 
+        }
+        
+        
+        if (
+            (playerChoice === "Rock" && computerChoice === "Scissors") ||
+            (playerChoice === "Paper" && computerChoice === "Rock") ||
+            (playerChoice === "Scissors" && computerChoice === "Paper")
+        ) {
+       
+            this.playersScore = this.playersScore + 1;
+            this.resultMsg.textContent = `${this.userName} wins this round!`;
+        } else {
+            
+            this.AiScore = this.AiScore + 1;
+            this.resultMsg.textContent = "AI wins this round!";
+        }
+      
+        this.playerScoreEl.textContent = this.playersScore;
+        this.computerScoreEl.textContent = this.AiScore;
+        
+  
+        this.checkGameOver();
+    }
+    
+    checkGameOver() {
+        if (this.playersScore === 5 || this.AiScore === 5) {
+          
+            if (this.playersScore > this.AiScore) {
+                this.winnerText.textContent = `${this.userName} WINS!`;
+            } else {
+                this.winnerText.textContent = "AI WINS!";
+            }
+            
+            this.finalScore.textContent = `Final Score: ${this.playersScore} - ${this.AiScore}`;
 
-let AiScore=0;
-
-playerScore.textContent=playersScore;
-
-function getAiChoice (){
-  const choice=["Rock","Paper","Scissors"];
-  const randomChoice= Math.floor(Math.random()*3);
-  return choice [randomChoice];
+            this.gameScreen.classList.add('hidden');
+            this.endScreen.classList.remove('hidden');
+        }
+    }
+    
+    
+    restart() {
+        this.playersScore = 0;
+        this.AiScore = 0;
+        
+        this.playerScoreEl.textContent = 0;
+        this.computerScoreEl.textContent = 0;
+        
+        this.resultMsg.textContent = "";
+      this.roundChoices.textContent = "";
+      
+      this.endScreen.classList.add('hidden');
+        this.gameScreen.classList.remove('hidden');
+    }
 }
 
-function updateScore() {
-    playerScore.textContent = playersScore;
-    computerScore.textContent = AiScore;
-}
-
-function playRound (playerChoice){
-
-  const AiChoice= getAiChoice();
-
-     roundChoices.textContent = `You chose ${playerChoice}, AI chose ${AiChoice}`;
-  if (playerChoice === AiChoice){
-    resultMsg.textContent= "It's a Tie!"
-    return;
-  }
-  if(
-  (playerChoice === "Rock" && AiChoice === "Scissors") ||
-  (playerChoice=== "Paper" && AiChoice === "Rock") ||
-  (playerChoice === "Scissors" && AiChoice==="Paper")
-  )
-  {
-    playersScore++;
-  resultMsg.textContent = "You win this round!";
- }else{
-  AiScore++;
-  resultMsg.textContent = "AI wins this round!";
-
-  }
-  updateScore();
-}
-
-function checkWinner(){
- if(playersScore===5 || AiScore===5){
-  if(playersScore > AiScore)
-    winnerText.textContent="You WIN!";
-  else{
-    winnerText.textContent="AI WIN!";
-  }
-  finalScore.textContent=`Final Score ${playersScore} - ${AiScore}`;
-
-  showScreens(endScreen);
- }
-
-}
-
-rockBtn.onclick= () =>{
-   playRound("Rock");
-  checkWinner();
-
-}
-
-paperBtn.onclick= () =>{
-  playRound("Paper");
-  checkWinner();
-}
-
-scissorsBtn.onclick= () =>{
-  playRound("Scissors");
-  checkWinner();
-};
-
-
-restartBtn.onclick = () => {
-    playersScore = 0;
-    AiScore = 0;
-    updateScore();
-    resultMsg.textContent = "";
-    roundChoices.textContent = "";
-    showScreens(gameScreen);
-};
+const game = new Game();
